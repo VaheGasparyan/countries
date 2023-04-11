@@ -1,8 +1,14 @@
+/// My Components
+import HomePage from "pages/home";
+
+/// MUI
+import {Box} from "@mui/material";
+
 const App = () => {
   return (
-    <div className="App">
-
-    </div>
+    <Box className="App">
+        <HomePage />
+    </Box>
   );
 }
 
