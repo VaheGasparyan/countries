@@ -2,6 +2,9 @@ import {useState, createContext} from "react";
 
 import {themeKey} from "config";
 
+/// interface
+import {IThemeContext} from "interfaces/theme";
+
 /// Utils
 import {getThemeInLocalStorage} from "./utils/getThemeInLocalStorage";
 import {setTheme} from "utils/setTheme";
@@ -15,10 +18,6 @@ import {Box, CssBaseline, ThemeProvider} from "@mui/material";
 /// Css
 import './App.css';
 
-interface IThemeContext {
-    changeTheme: () => void;
-    theme: string;
-}
 
 export const ThemeContext = createContext<IThemeContext>({
     changeTheme: () => {},

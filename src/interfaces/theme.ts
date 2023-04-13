@@ -9,3 +9,8 @@ export interface ITheme {
         }
     }
 }
+
+export interface IThemeContext {
+    changeTheme: () => void;
+    theme: string;
+}
