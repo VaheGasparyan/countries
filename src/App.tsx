@@ -1,10 +1,10 @@
-import {useState} from "react"
+import {useState, createContext} from "react";
+
+import {themeKey} from "config";
 
 /// Utils
 import {getThemeInLocalStorage} from "./utils/getThemeInLocalStorage";
-
-/// Theme interface
-import {ITheme} from "./interfaces/theme";
+import {setTheme} from "utils/setTheme";
 
 /// My Components
 import HomePage from "pages/home";
@@ -12,16 +12,39 @@ import HomePage from "pages/home";
 /// MUI
 import {Box, CssBaseline, ThemeProvider} from "@mui/material";
 
+/// Css
+import './App.css';
+
+interface IThemeContext {
+    changeTheme: () => void;
+    theme: string;
+}
+
+export const ThemeContext = createContext<IThemeContext>({
+    changeTheme: () => {},
+    theme: ''
+});
+
 const App = () => {
-    const [currentTheme, setCurrentTheme] = useState<ITheme>(getThemeInLocalStorage());
+    const [currentTheme, setCurrentTheme] = useState(getThemeInLocalStorage());
+
+    const changeTheme = () => {
+        const theme = setTheme();
+        setCurrentTheme(theme);
+    }
 
     return (
-    <ThemeProvider theme={currentTheme}>
-        <CssBaseline />
-        <Box className="App">
-            <HomePage />
-        </Box>
-    </ThemeProvider>
+        <ThemeContext.Provider value={{
+            changeTheme,
+            theme: localStorage.getItem(themeKey) as string
+        }}>
+            <ThemeProvider theme={currentTheme}>
+                <CssBaseline />
+                <Box className="App">
+                    <HomePage />
+                </Box>
+            </ThemeProvider>
+        </ThemeContext.Provider>
   );
 }
 

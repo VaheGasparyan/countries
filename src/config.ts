@@ -1,3 +1,6 @@
-export const themKey = 'theme';
-export const lightTheme = 'lightTheme';
-export const darkTheme = 'darkTheme';
+export const themeKey = 'theme';
+export const lightMode = 'lightMode';
+export const darkMode = 'darkMode';
+export const shadowsIndex = {
+    header: 3
+};

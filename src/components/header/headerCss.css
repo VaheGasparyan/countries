@@ -1,6 +1,7 @@
 .header {
     width: 100%;
     height: 80px;
+    transition: .3s ease-in-out;
 }
 
 .header .container {
@@ -12,4 +13,8 @@
 
 .header .container .title .header_title {
     font-weight: bold;
+}
+
+.header .container .theme_btn {
+    cursor: pointer;
 }

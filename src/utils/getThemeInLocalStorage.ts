@@ -1,12 +1,14 @@
-import {lightTheme, themKey} from "config";
-import {darkMode, lightMode} from "themeConfig";
+import {darkMode, lightMode, themeKey} from "config";
+import {lightTheme, darkTheme} from "themeConfig";
 
 export const getThemeInLocalStorage = () => {
-    const theme = localStorage.getItem(themKey);
+    const theme = localStorage.getItem(themeKey);
 
-    if(theme && theme === lightTheme) {
-        return lightMode;
-    } else {
-        return darkMode;
+    if(theme && theme === lightMode) {
+        return lightTheme;
+    } else if(theme && theme === darkMode) {
+        return darkTheme;
     }
+
+    return lightTheme;
 }

@@ -2,11 +2,16 @@
 import Header from 'components/header';
 
 /// MUI
-import {Box} from "@mui/material";
+import {Box, useTheme} from "@mui/material";
+
+/// Css
+import './homeCss.css';
 
 const HomePage = () => {
+    const { palette: { primary: { main } } } = useTheme();
+
     return (
-        <Box className='home'>
+        <Box className='home' sx={{height: '100vh', width: '100%', background: main}}>
             <Header />
         </Box>
     );

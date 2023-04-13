@@ -1,5 +1,11 @@
 export interface ITheme {
     palette: {
-        mode: string,
+        mode: string;
+        primary: {
+            main: string
+        },
+        secondary: {
+            main: string
+        }
     }
 }

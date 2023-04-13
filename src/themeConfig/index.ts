@@ -1,14 +1,27 @@
-import {ITheme} from "interfaces/theme";
-import {createTheme} from "@mui/material";
+import { createTheme } from "@mui/material";
 
-export const lightMode: ITheme = createTheme({
+const lightTheme = createTheme({
     palette: {
         mode: 'light',
-    }
+        primary: {
+            main: '#fff',
+        },
+        secondary: {
+            main: '#fff'
+        },
+    },
 });
 
-export const darkMode: ITheme = createTheme({
+const darkTheme = createTheme({
     palette: {
         mode: 'dark',
-    }
+        primary: {
+            main: '#222e37',
+        },
+        secondary: {
+            main: '#2b3742'
+        },
+    },
 });
+
+export { lightTheme, darkTheme };
