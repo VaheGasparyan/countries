@@ -5,7 +5,8 @@ export interface ITheme {
             main: string
         },
         secondary: {
-            main: string
+            main: string;
+            contrastText: string
         }
     }
 }

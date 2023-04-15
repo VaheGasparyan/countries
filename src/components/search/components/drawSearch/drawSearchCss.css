@@ -1,0 +1,35 @@
+.wrapper {
+    margin-top: 50px;
+    position: relative;
+}
+
+.wrapper .searchInput {
+    width: 450px;
+    font-size: 18px;
+    outline: none;
+    border-radius: 3px;
+    padding: 15px 0px 15px 50px;
+    border: 0px;
+}
+
+.wrapper .searchInput::-webkit-input-placeholder {
+    color: #fff;
+}
+
+.wrapper .searchInput::-moz-placeholder {
+    color: #fff;
+}
+
+.wrapper .searchInput.active::-webkit-input-placeholder {
+    color: #000;
+}
+
+.wrapper .searchInput.active::-moz-placeholder {
+    color: #fff;
+}
+
+.wrapper .icon {
+    position: absolute;
+    top: 14px;
+    left: 20px;
+}
