@@ -1,5 +1,6 @@
 /// My Components
 import Header from 'components/header';
+import Search from "components/search";
 
 /// MUI
 import {Box, useTheme} from "@mui/material";
@@ -13,6 +14,7 @@ const HomePage = () => {
     return (
         <Box className='home' sx={{height: '100vh', width: '100%', background: main}}>
             <Header />
+            <Search />
         </Box>
     );
 };
