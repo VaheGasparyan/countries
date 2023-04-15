@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 
 /// MUI
-import {Box, useTheme} from "@mui/material";
+import {Box, Container, useTheme} from "@mui/material";
 
 /// Font awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -28,8 +28,10 @@ const DrawSearch = () => {
 
     return (
         <Box className='wrapper'>
-            <i className='icon'><FontAwesomeIcon icon="search" /></i>
-            <input style={{background: main, color: contrastText, boxShadow: shadows[shadowsIndex.search]}} type="text" className={`searchInput ${active}`} placeholder='Search for a country...' />
+            <Container maxWidth='xl' className='container' >
+                <i className='icon'><FontAwesomeIcon icon="search" /></i>
+                <input style={{background: main, color: contrastText, boxShadow: shadows[shadowsIndex.search]}} type="text" className={`searchInput ${active}`} placeholder='Search for a country...' />
+            </Container>
         </Box>
     );
 };

@@ -1,6 +1,7 @@
 /// My Components
 import Header from 'components/header';
 import Search from "components/search";
+import Select from "components/select";
 
 /// MUI
 import {Box, useTheme} from "@mui/material";
@@ -15,6 +16,7 @@ const HomePage = () => {
         <Box className='home' sx={{height: '100vh', width: '100%', background: main}}>
             <Header />
             <Search />
+            <Select />
         </Box>
     );
 };

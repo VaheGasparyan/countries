@@ -2,14 +2,12 @@
 import DrawSearch from "./components/drawSearch";
 
 /// MUI
-import {Box, Container} from "@mui/material";
+import {Box} from "@mui/material";
 
 const Search = () => {
     return (
         <Box className='search'>
-            <Container maxWidth='xl' className='container'>
-                <DrawSearch />
-            </Container>
+            <DrawSearch />
         </Box>
     );
 };
