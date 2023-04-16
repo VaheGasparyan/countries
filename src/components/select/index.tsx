@@ -1,4 +1,4 @@
-/// My componenets
+/// My components
 import DrawSelect from "./components/drawSelect";
 
 /// MUI

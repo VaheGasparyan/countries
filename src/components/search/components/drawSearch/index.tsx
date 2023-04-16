@@ -28,10 +28,8 @@ const DrawSearch = () => {
 
     return (
         <Box className='wrapper'>
-            <Container maxWidth='xl' className='container' >
-                <i className='icon'><FontAwesomeIcon icon="search" /></i>
-                <input style={{background: main, color: contrastText, boxShadow: shadows[shadowsIndex.search]}} type="text" className={`searchInput ${active}`} placeholder='Search for a country...' />
-            </Container>
+            <i className='icon'><FontAwesomeIcon icon="search" /></i>
+            <input style={{background: main, color: contrastText, boxShadow: shadows[shadowsIndex.searchAndSelect]}} type="text" className={`searchInput ${active}`} placeholder='Search for a country...' />
         </Box>
     );
 };

@@ -1,3 +1,10 @@
 .home {
     transition: .3s ease-in-out;
 }
+
+.home .inpSelect {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
