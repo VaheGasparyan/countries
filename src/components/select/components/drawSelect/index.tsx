@@ -1,7 +1,11 @@
 import {useState} from "react";
 
+/// Redux
+import {useAppDispatch} from "store/app/hooks";
+import {fetchCountries} from "store/features/countriesSlice";
+
 /// Config
-import {shadowsIndex} from "config";
+import {getCountriesByRegion, shadowsIndex} from "config";
 
 /// MUI
 import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, useTheme} from "@mui/material";
@@ -12,10 +16,12 @@ import './drawSelect.css';
 const DrawSelect = () => {
     const [selectValue, setSelectValue] = useState('');
     const { palette: {secondary: { main }}, shadows } = useTheme();
+    const dispatch = useAppDispatch();
 
     const handleChange = (event: SelectChangeEvent) => {
         const {value} = event.target;
         setSelectValue(value);
+        dispatch(fetchCountries(getCountriesByRegion(value)));
     }
 
     return (
@@ -28,6 +34,7 @@ const DrawSelect = () => {
                 label="Filter by Region"
                 onChange={handleChange}
             >
+                <MenuItem value=''>All</MenuItem>
                 <MenuItem value='America'>America</MenuItem>
                 <MenuItem value='Europe'>Europe</MenuItem>
                 <MenuItem value='Oceania'>Oceania</MenuItem>
