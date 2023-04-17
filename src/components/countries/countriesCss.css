@@ -1,0 +1,15 @@
+.countries {
+    margin-top: 50px;
+}
+
+.countries .card_container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.countries .card_container .card {
+    width: 270px;
+    margin-right: 45px;
+    margin-bottom: 45px;
+}
