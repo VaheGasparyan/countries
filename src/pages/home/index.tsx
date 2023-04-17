@@ -13,6 +13,7 @@ import Search from "components/search";
 import Select from "components/select";
 import Countries from "components/countries";
 import Loading from "components/loading";
+import NotFound from "components/notFound";
 
 /// MUI
 import {Box, Container, useTheme} from "@mui/material";
@@ -22,7 +23,7 @@ import './homeCss.css';
 
 
 const HomePage = () => {
-    const { status } = useAppSelector(state => state.countriesSlice);
+    const { status, error } = useAppSelector(state => state.countriesSlice);
     const dispatch = useAppDispatch();
     const { palette: { primary: { main } } } = useTheme();
 
@@ -34,12 +35,12 @@ const HomePage = () => {
         <Box className='home' sx={{width: '100%', background: main}}>
             <Header />
 
-            <Container maxWidth='xl' className='inpSelect'>
+            {error ? <NotFound /> : <><Container maxWidth='xl' className='inpSelect'>
                 <Search />
                 <Select />
             </Container>
 
-            {status === 'loading' ? <Loading /> : <Countries />}
+                {status === 'loading' ? <Loading /> : <Countries />}</>}
         </Box>
     );
 };
