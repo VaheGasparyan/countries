@@ -4,7 +4,7 @@ import Search from "components/search";
 import Select from "components/select";
 
 /// MUI
-import {Box, useTheme} from "@mui/material";
+import {Box, Container, useTheme} from "@mui/material";
 
 /// Css
 import './homeCss.css';
@@ -15,8 +15,11 @@ const HomePage = () => {
     return (
         <Box className='home' sx={{height: '100vh', width: '100%', background: main}}>
             <Header />
-            <Search />
-            <Select />
+
+            <Container maxWidth='xl' className='inpSelect'>
+                <Search />
+                <Select />
+            </Container>
         </Box>
     );
 };

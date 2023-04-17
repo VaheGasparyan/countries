@@ -1,8 +1,4 @@
 .wrapper {
-    margin-top: 50px;
-}
-
-.wrapper .container {
     position: relative;
 }
 
@@ -31,8 +27,8 @@
     color: #fff;
 }
 
-.wrapper .container .icon {
+.wrapper .icon {
     position: absolute;
     top: 14px;
-    left: 40px;
+    left: 18px;
 }
