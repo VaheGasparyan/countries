@@ -4,28 +4,37 @@ import {useState} from "react";
 import {shadowsIndex} from "config";
 
 /// MUI
-import {MenuItem, SelectChangeEvent, TextField, useTheme} from "@mui/material";
+import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, useTheme} from "@mui/material";
 
 ///Css
 import './drawSelect.css';
 
 const DrawSelect = () => {
     const [selectValue, setSelectValue] = useState('');
-    const { palette: {secondary: { main, contrastText }}, shadows } = useTheme();
+    const { palette: {secondary: { main }}, shadows } = useTheme();
 
-    const handleChange = (event: any) => {
+    const handleChange = (event: SelectChangeEvent) => {
         const {value} = event.target;
         setSelectValue(value);
     }
 
     return (
-        <TextField className='select' sx={{background: main, boxShadow: shadows[shadowsIndex.searchAndSelect]}} label='Filter by Region' value={selectValue} onChange={handleChange} select>
-            <MenuItem value='Africa' >Africa</MenuItem>
-            <MenuItem value='America' >America</MenuItem>
-            <MenuItem value='Europe' >Europe</MenuItem>
-            <MenuItem value='Aia' >Aia</MenuItem>
-            <MenuItem value='Oceania' >Oceania</MenuItem>
-        </TextField>
+        <FormControl className='formControl' sx={{background: main, boxShadow: shadows[shadowsIndex.searchAndSelect]}}>
+            <InputLabel id="demo-simple-select-label">Filter by Region</InputLabel>
+            <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={selectValue}
+                label="Filter by Region"
+                onChange={handleChange}
+            >
+                <MenuItem value='America'>America</MenuItem>
+                <MenuItem value='Europe'>Europe</MenuItem>
+                <MenuItem value='Oceania'>Oceania</MenuItem>
+                <MenuItem value='Asia'>Asia</MenuItem>
+                <MenuItem value='Africa'>Africa</MenuItem>
+            </Select>
+        </FormControl>
     );
 };
 

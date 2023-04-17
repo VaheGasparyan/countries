@@ -2,6 +2,7 @@
 import Header from 'components/header';
 import Search from "components/search";
 import Select from "components/select";
+import Countries from "components/countries";
 
 /// MUI
 import {Box, Container, useTheme} from "@mui/material";
@@ -19,6 +20,7 @@ const HomePage = () => {
             <Container maxWidth='xl' className='inpSelect'>
                 <Search />
                 <Select />
+                <Countries />
             </Container>
         </Box>
     );
