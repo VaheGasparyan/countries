@@ -4,7 +4,7 @@ import {useState} from "react";
 import {shadowsIndex} from "config";
 
 /// MUI
-import {FormControl, InputLabel, MenuItem, Select, useTheme} from "@mui/material";
+import {MenuItem, SelectChangeEvent, TextField, useTheme} from "@mui/material";
 
 ///Css
 import './drawSelect.css';
@@ -19,22 +19,13 @@ const DrawSelect = () => {
     }
 
     return (
-        <FormControl sx={{ background: main, color: contrastText, boxShadow: shadows[shadowsIndex.searchAndSelect] }} className='formControl'>
-            <InputLabel id="demo-simple-select-label">Filter by Region</InputLabel>
-            <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                label="Filter by Region"
-                value={selectValue}
-                onChange={handleChange}
-            >
-                <MenuItem value='Africa'>Africa</MenuItem>
-                <MenuItem value='America'>America</MenuItem>
-                <MenuItem value='Asia'>Asia</MenuItem>
-                <MenuItem value='Europe'>Europe</MenuItem>
-                <MenuItem value='Oceania'>Oceania</MenuItem>
-            </Select>
-        </FormControl>
+        <TextField className='select' sx={{background: main, boxShadow: shadows[shadowsIndex.searchAndSelect]}} label='Filter by Region' value={selectValue} onChange={handleChange} select>
+            <MenuItem value='Africa' >Africa</MenuItem>
+            <MenuItem value='America' >America</MenuItem>
+            <MenuItem value='Europe' >Europe</MenuItem>
+            <MenuItem value='Aia' >Aia</MenuItem>
+            <MenuItem value='Oceania' >Oceania</MenuItem>
+        </TextField>
     );
 };
 
