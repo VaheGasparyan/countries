@@ -1,21 +1,22 @@
 /// Redux
 import {useAppSelector} from "store/app/hooks";
 
+/// Config
+import { shadowsIndex } from "config";
 
-import {Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography} from "@mui/material";
-import {Fragment} from "react";
+/// MUI
+import {Card, CardActionArea, CardContent, CardMedia, Typography, useTheme} from "@mui/material";
 
 const DrawCountries = () => {
-    const { countriesSlice: { countries } } = useAppSelector(state => state);
+    const { countries } = useAppSelector(state => state.countriesSlice);
     const { v4: uuid } = require('uuid');
-
-    console.log(countries[0]);
+    const { palette: { secondary: { main } }, shadows } = useTheme();
 
     return (
         <>
             {countries.map(country => {
                 return (
-                    <Card className='card' key={uuid()}>
+                    <Card sx={{background: main, boxShadow: shadows[shadowsIndex.card]}} className='card' key={uuid()}>
                         <CardActionArea>
                             <CardMedia
                                 component="img"
@@ -37,11 +38,6 @@ const DrawCountries = () => {
                                     Capital: {country.capital}
                                 </Typography>
                             </CardContent>
-                            <CardActions>
-                                <Button size="small" color="primary">
-                                    Share
-                                </Button>
-                            </CardActions>
                         </CardActionArea>
                     </Card>
                 )

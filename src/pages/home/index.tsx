@@ -1,7 +1,7 @@
 import {useEffect} from "react";
 
 /// Redux
-import {useAppDispatch} from "store/app/hooks";
+import {useAppDispatch, useAppSelector} from "store/app/hooks";
 import {fetchCountries} from "store/features/countriesSlice";
 
 /// Config
@@ -12,6 +12,7 @@ import Header from 'components/header';
 import Search from "components/search";
 import Select from "components/select";
 import Countries from "components/countries";
+import Loading from "components/loading";
 
 /// MUI
 import {Box, Container, useTheme} from "@mui/material";
@@ -21,6 +22,7 @@ import './homeCss.css';
 
 
 const HomePage = () => {
+    const { status } = useAppSelector(state => state.countriesSlice);
     const dispatch = useAppDispatch();
     const { palette: { primary: { main } } } = useTheme();
 
@@ -37,7 +39,7 @@ const HomePage = () => {
                 <Select />
             </Container>
 
-            <Countries />
+            {status === 'loading' ? <Loading /> : <Countries />}
         </Box>
     );
 };
