@@ -1,11 +1,14 @@
-import {useEffect} from "react";
+import {createContext, useEffect, useState} from "react";
 
 /// Redux
 import {useAppDispatch, useAppSelector} from "store/app/hooks";
 import {fetchCountries} from "store/features/countriesSlice";
 
-/// Config
-import {getAllCountriesURL} from "config";
+/// Services
+import { getAllCountriesURL } from "services/apiUrl";
+
+/// Interface
+import {ISelectValue} from "interfaces/selectInterface";
 
 /// My Components
 import Header from 'components/header';
@@ -21,23 +24,38 @@ import {Box, Container, useTheme} from "@mui/material";
 /// Css
 import './homeCss.css';
 
+export const SelectValueContext = createContext<ISelectValue>({
+    changeSelectValue: (value) => {},
+    selectValue: ''
+});
+
 
 const HomePage = () => {
     const { status, error } = useAppSelector(state => state.countriesSlice);
     const dispatch = useAppDispatch();
     const { palette: { primary: { main } } } = useTheme();
+    const [selectValue, setSelectValue] = useState('');
 
     useEffect(() => {
         dispatch(fetchCountries(getAllCountriesURL()));
-    }, [])
+    }, []);
+
+    const changeSelectValue = (value: string) => {
+        setSelectValue(value);
+    }
 
     return (
         <Box className='home' sx={{width: '100%', background: main}}>
             <Header />
 
             {error ? <NotFound /> : <><Container maxWidth='xl' className='inpSelect'>
-                <Search />
-                <Select />
+                <SelectValueContext.Provider value={{
+                    changeSelectValue,
+                    selectValue
+                }}>
+                    <Search />
+                    <Select />
+                </SelectValueContext.Provider>
             </Container>
 
                 {status === 'loading' ? <Loading /> : <Countries />}</>}

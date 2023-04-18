@@ -1,11 +1,15 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
+import { SelectValueContext } from "pages/home";
 
 /// Redux
 import {useAppDispatch} from "store/app/hooks";
 import {fetchCountries} from "store/features/countriesSlice";
 
 /// Config
-import {getCountriesByRegion, shadowsIndex} from "config";
+import {shadowsIndex} from "config";
+
+/// Services
+import { getCountriesByRegion } from "services/apiUrl";
 
 /// MUI
 import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, useTheme} from "@mui/material";
@@ -14,13 +18,13 @@ import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, useTheme} 
 import './drawSelect.css';
 
 const DrawSelect = () => {
-    const [selectValue, setSelectValue] = useState('');
     const { palette: {secondary: { main }}, shadows } = useTheme();
     const dispatch = useAppDispatch();
+    const { changeSelectValue, selectValue } = useContext(SelectValueContext);
 
     const handleChange = (event: SelectChangeEvent) => {
         const {value} = event.target;
-        setSelectValue(value);
+        changeSelectValue(value);
         dispatch(fetchCountries(getCountriesByRegion(value)));
     }
 
