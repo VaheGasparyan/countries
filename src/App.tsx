@@ -1,5 +1,9 @@
 import {useState, createContext} from "react";
 
+/// Routing
+import { Routes, Route } from "react-router-dom";
+
+/// Config
 import {themeKey} from "config";
 
 /// interface
@@ -11,6 +15,7 @@ import {setTheme} from "utils/setTheme";
 
 /// My Components
 import HomePage from "pages/home";
+import Country from "./pages/country";
 
 /// MUI
 import {Box, CssBaseline, ThemeProvider} from "@mui/material";
@@ -40,7 +45,10 @@ const App = () => {
             <ThemeProvider theme={currentTheme}>
                 <CssBaseline />
                 <Box className="App">
-                    <HomePage />
+                    <Routes>
+                        <Route path='/' element={<HomePage />} />
+                        <Route path='country/:countryName' element={<Country />} />
+                    </Routes>
                 </Box>
             </ThemeProvider>
         </ThemeContext.Provider>

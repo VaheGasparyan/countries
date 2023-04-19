@@ -1,3 +1,5 @@
+import { SyntheticEvent } from 'react';
+
 /// Redux
 import {useAppSelector} from "store/app/hooks";
 
@@ -5,12 +7,17 @@ import {useAppSelector} from "store/app/hooks";
 import { shadowsIndex } from "config";
 
 /// MUI
-import {Card, CardActionArea, CardContent, CardMedia, Typography, useTheme} from "@mui/material";
+import {Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography, useTheme} from "@mui/material";
 
 const DrawCountries = () => {
     const { countries } = useAppSelector(state => state.countriesSlice);
     const { v4: uuid } = require('uuid');
     const { palette: { secondary: { main } }, shadows } = useTheme();
+
+    const handleClick = (event: SyntheticEvent<HTMLButtonElement, Event>) => {
+        console.log(event.currentTarget.id);
+    }
+
 
     return (
         <>
@@ -39,6 +46,9 @@ const DrawCountries = () => {
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
+                        <CardActions sx={{marginBottom: '5px'}}>
+                            <Button id={country.name.common} sx={{color: '#7dadd4', fontWeight: 'bold' }} onClick={handleClick}>Show more</Button>
+                        </CardActions>
                     </Card>
                 )
             })}
