@@ -18,7 +18,9 @@ const Country = () => {
     const { palette: { primary: { main } } } = useTheme();
 
     useEffect(() => {
-        dispatch(fetchCountries(getCountriesAtNameURL(countryName as string)))
+        setTimeout(() => {
+            dispatch(fetchCountries(getCountriesAtNameURL(countryName as string)))
+        }, 5000)
     }, [])
 
     return (
@@ -30,7 +32,10 @@ const Country = () => {
                     <Box className='btn' sx={{marginTop: '50px'}}>
                         <BackButton />
                     </Box>
-                    <DrawCountry />
+
+                    <Box className='info' >
+                        <DrawCountry />
+                    </Box>
                 </Container>
             </Box>
         </Box>
