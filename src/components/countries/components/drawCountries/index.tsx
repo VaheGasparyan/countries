@@ -1,4 +1,5 @@
 import { SyntheticEvent } from 'react';
+import { useNavigate } from "react-router-dom";
 
 /// Redux
 import {useAppSelector} from "store/app/hooks";
@@ -13,9 +14,10 @@ const DrawCountries = () => {
     const { countries } = useAppSelector(state => state.countriesSlice);
     const { v4: uuid } = require('uuid');
     const { palette: { secondary: { main } }, shadows } = useTheme();
+    const navigate = useNavigate();
 
     const handleClick = (event: SyntheticEvent<HTMLButtonElement, Event>) => {
-        console.log(event.currentTarget.id);
+        navigate(`country/${event.currentTarget.id}`)
     }
 
 
