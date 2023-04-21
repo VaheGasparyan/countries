@@ -7,7 +7,7 @@ const getAllCountriesURL = () => {
     return BASE_URL + all;
 }
 
-const getCountriesAtNameURL = (countryName: string, selectValue: string) => {
+const getCountriesAtNameURL = (countryName: string, selectValue?: string) => {
     if(countryName) {
         return BASE_URL + `${name}/${countryName}`;
     } else if(selectValue) {
