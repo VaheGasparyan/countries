@@ -18,9 +18,7 @@ const Country = () => {
     const { palette: { primary: { main } } } = useTheme();
 
     useEffect(() => {
-        setTimeout(() => {
-            dispatch(fetchCountries(getCountriesAtNameURL(countryName as string)))
-        }, 5000)
+        dispatch(fetchCountries(getCountriesAtNameURL(countryName as string)))
     }, [])
 
     return (

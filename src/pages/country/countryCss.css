@@ -25,6 +25,10 @@
     margin-bottom: 6px;
 }
 
+.country .wrapper .info .description .subtitle_two h6 {
+    margin-bottom: 6px;
+}
+
 .country .wrapper .flag {
     width: 500px;
 }
