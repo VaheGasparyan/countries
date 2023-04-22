@@ -1,0 +1,21 @@
+.skeleton {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.skeleton .info_skeleton {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 30px;
+}
+
+.skeleton .info_skeleton .description_1 {
+    margin-left: 20px;
+}
+
+.skeleton .info_skeleton .description_2 {
+    margin-top: 50px;
+    margin-left: 50px;
+}
